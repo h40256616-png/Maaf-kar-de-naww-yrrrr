@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency: One Very Angry Girl Detected ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+font-family:Arial,sans-serif;background:linear-gradient(135deg,#180b18,#35132c,#160d22);
+color:#fff;overflow:hidden}
+.card{width:min(92%,430px);padding:30px 24px;text-align:center;border-radius:28px;
+background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);
+box-shadow:0 20px 70px rgba(0,0,0,.45);backdrop-filter:blur(12px)}
+.emoji{font-size:58px;margin-bottom:8px}h1{font-size:26px;margin:8px 0 12px}
+p{line-height:1.6;color:#f5dce9}
+button{width:100%;margin:8px 0;padding:14px 16px;border:0;border-radius:16px;
+background:#ff5c9a;color:white;font-size:16px;font-weight:bold;cursor:pointer;
+transition:.2s;box-shadow:0 8px 20px rgba(255,92,154,.2)}
+button:hover{transform:translateY(-2px)}
+.hidden{display:none}.small{font-size:13px;color:#c9aaba}
+.heart{position:fixed;bottom:-30px;animation:float 5s linear forwards;pointer-events:none}
+@keyframes float{to{transform:translateY(-110vh) rotate(20deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="card">
+
+<section id="start">
+<div class="emoji">🚨</div>
+<h1>Emergency: One Very Angry Girl Detected 🚨</h1>
+<p>Lagta hai kisi pagal ne phir kuch zyada hi kar diya hai 😭<br>
+Treatment ki sakht zaroorat hai. 🥺</p>
+<button onclick="show('apology')">Open emergency treatment 💌</button>
+</section>
+
+<section id="apology" class="hidden">
+<div class="emoji">🥺</div>
+<h1>Hn pata hai… mai bht bura hun 😭</h1>
+<p>
+Ab aik or dafa sab mess kar diya 🫠<br><br>
+Ary yr 😭 aap ne situation hi itne maze ki bana di thi ke mujhse slip ho gaya.
+Mai ne sirf prank ke liye kia tha, aap ko hurt karna bilkul maqsad nahi tha. ❤️<br><br>
+Aur agar kabhi aisa kuch ho bhi, aap ka naam kabhi nahi ayega. 🫶🏻<br><br>
+Ik prank heavy tha… dil se maaf farma dein na is pagal ko. Plzzz 🥺👉🏻👈🏻
+</p>
+<button onclick="show('buttons')">Chalo… ab mood bata dein 🥹</button>
+</section>
+
+<section id="buttons" class="hidden">
+<div class="emoji">🫠</div>
+<h1>Abhi mood kya hai, madam? 🥺</h1>
+<button onclick="angry()">🥺 I'm still angry</button>
+<button onclick="missed()">😂 I secretly missed you</button>
+<button onclick="forgive()">❤️ I forgive you</button>
+<p id="reply" class="small"></p>
+</section>
+
+<section id="final" class="hidden">
+<div class="emoji">🌷</div>
+<h1>Hn ik… prank kaafi heavy tha 😭</h1>
+<p>
+Mere mind mein bas ye tha ke aap ne kaha tha
+“mai bekhof hun, sab sambhalungi” 🥹
+Bas isi baat ko le kar prank ka idea aya… lekin heavy si ghalti ho gai. 🫠<br><br>
+Aap se bht dur hun, warna aik pyara sa flower bouquet le aata 🌷
+Abhi ke liye is se kaam chala lein. 🥺❤️<br><br>
+No need to accept my sorry right now. 🥺<br>
+Aur promise hai, ainda aisa prank dobara nahi hoga. 🤝🏻❤️<br>
+Tang karna band nahi karunga 😂 bas aisa prank dobara nahi hoga.
+</p>
+<button onclick="celebrate()">Okay, one last button ❤️</button>
+</section>
+
+</div>
+
+<script>
+const angryTexts=[
+"Fair enough 😭 gussa kar lein, haq hai aap ka 🥺",
+"Acha baba sorryyy 🥺 ab thora sa gussa kam?",
+"Meri ghalti thi… maan liya 😭🫡",
+"Punishment accepted madam 😭 bas baat band na karein.",
+"Prank karne gaya tha, khud hi guilty ban gaya 🫠",
+"Please is pagal ko thora sa maaf kar dein 🥺❤️",
+"Lecture bhi de dein… sun lunga 😭",
+"Theek hai, aaj aap ki marzi chalegi 👑😂",
+"Bas aik choti si smile de dein na 🥺",
+"Last try… dil se sorry ❤️🥺"
+];
+const missedTexts=[
+"AHA! 😭 Mujhe pata tha… thora sa to miss kia hoga 😂❤️",
+"Pakri gayi 😭 ab itna bhi innocent na banein 🫠",
+"Bas isi confession ka intezar tha 🥺❤️",
+"Prank ke baad bhi miss kia? Hayee 😭😂",
+"Ye sun kar mera gussa bhi khatam ho gaya 🥹❤️",
+"Achaa… matlab pagal ko bilkul bhooli nahi thi 😌😂",
+"Secret tha? Ab to mujhe pata chal gaya 😭",
+"Okayyy, ye wali baat save kar raha hun 😂❤️",
+"Phir gussa thora sa kam ho sakta hai? 🥺",
+"Mission successful: ek smile mil gayi ❤️🌷"
+];
+let angryIndex=0,missedIndex=0;
+
+function show(id){
+document.querySelectorAll("section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+}
+function angry(){
+document.getElementById("reply").textContent=angryTexts[angryIndex%angryTexts.length];
+angryIndex++;
+}
+function missed(){
+document.getElementById("reply").textContent=missedTexts[missedIndex%missedTexts.length];
+missedIndex++;
+}
+function forgive(){
+document.getElementById("reply").textContent="Finally… peace has been restored in the kingdom. 👑❤️";
+setTimeout(()=>show("final"),1400);
+}
+function celebrate(){
+for(let i=0;i<25;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.textContent=["❤️","💗","🌷","✨","💕"][Math.floor(Math.random()*5)];
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(18+Math.random()*22)+"px";
+h.style.animationDuration=(3+Math.random()*3)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+}
+}
+</script>
+</body>
+</html>
